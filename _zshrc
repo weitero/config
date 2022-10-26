@@ -1,0 +1,123 @@
+#########
+#aliases
+alias ....='cd ../../..'
+alias ...='cd ../..'
+alias ..='cd ..'
+alias cat='cat -enstv'
+alias cp='cp -aiv' #-a same as -RpP
+alias cpan-outdated='cpan-outdated --exclude-core'
+alias curl='curl --compressed -JLOR'
+alias grep='grep --colour=auto -Iin'
+alias l='exa --color automatic --git --group-directories-first -Fgh -s Name'
+alias la='l -a'
+alias ldi='l -D'
+alias less='less --incsearch --mouse --use-color -FJNSgimsw'
+alias ll='l -l'
+alias lt='l -s newest'
+alias mv='mv -iv'
+alias ncdu='ncdu --color off --group-directories-first'
+alias pipo='pip3 list --outdated'
+alias pipu='pip3 install -U'
+alias pwd='pwd -P'
+alias q='exit'
+alias rm='rm -iv'
+alias top='htop'
+alias vi='nvim -n'
+alias vim='nvim -n'
+#git
+alias ga='git add' #[file]
+alias gb='git branch' #[branch-name]
+alias gba='git branch -a'
+alias gbd='git branch -d' #[name]
+alias gch='git checkout --' #[file]
+alias gcl='git clone --depth 1' #[repo]
+alias gcm='git commit -m' #"[descriptive message]"
+alias gd='git diff' #[file]
+alias gds='git diff --staged' #[file]
+alias gf='git fetch' #[alias]
+alias gfp='git fetch --prune' #[alias]
+alias gi='git init' #[directory]
+alias gl='git log --decorate --graph --oneline --stat -M'
+alias glf='git log --follow' #[file]
+alias gmg='git merge' #[branch]
+alias gmv='git mv' #[existing-path] [new-path]
+alias gpl='git pull' #[remote]
+alias gps='git push' #[alias] [branch]
+alias gpst='git push --tags' #[remote]
+alias gpsu='git push -u' #[remote] [branch]
+alias gra='git remote add' #[alias] [url]
+alias grb='git rebase' #[branch]
+alias grl='git reflog'
+alias grm='git rm' #[file]
+alias grs='git reset' #[file]
+alias grsh='git reset --hard' #[commit]
+alias grv='git revert' #[commit sha]
+alias gsh='git show' #[sha]
+alias gss='git stash'
+alias gssd='git stash drop'
+alias gssl='git stash list'
+alias gssp='git stash pop'
+alias gst='git status'
+alias gt='git tag'
+alias gta='git tag -a' #[name] [commit sha]
+alias gtd='git tag -d' #[name]
+
+############
+#bat themes
+[[ "$theme" == 'Dark\n' ]] && export BAT_THEME=OneHalfDark || export BAT_THEME=ansi
+theme=$(defaults read -g AppleInterfaceStyle 2>/dev/null)
+
+#####
+#fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+######################
+#git branch in prompt
+#https://www.themoderncoder.com/add-git-branch-information-to-your-zsh-prompt/
+# RPROMPT=\$vsc_info_msg_0_
+# autoload -Uz vcs_info
+# precmd(){vsc_info}
+# setopt PROMPT_SUBST
+# zstyle ':vcs_info:git:*' formats '(%b)%r'
+
+###################
+#history searching
+bindkey "^[[A" history-search-backward
+bindkey "^[[B" history-search-forward
+
+##########
+#homebrew
+export EDITOR=nvim
+export HOMEBREW_EDITOR=nvim
+export HOMEBREW_NO_ANALYTICS=1
+#shell completion
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+autoload -Uz compinit && compinit
+
+######
+#misc
+# export PKG_CONFIG_PATH="/usr/local/opt/icu4c/lib/pkgconfig"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=cyan,bold'
+eval "$(perl -I$HOME/software/usr/lib/perl5 -Mlocal::lib=$HOME/software/usr)"
+export GPG_TTY=$(tty)
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+##########
+#starship
+eval "$(starship init zsh)"
+
+########
+#zoxide
+eval "$(zoxide init zsh)"
+
+################
+#zsh completion
+#https://thevaluable.dev/zsh-completion-guide-examples/
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' menu select
+zstyle ':completion:*:*:*:*:descriptions' format '%F{green}-- %d --%f'
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+

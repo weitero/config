@@ -1,0 +1,20 @@
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\e[C": forward-char
+"\e[D": backward-char
+set bell-style none
+set blink-matching-paren
+set colored-completion-prefix
+set colored-stats
+set completion-ignore-case
+set editing-mode vi
+set expand-tilde
+set mark-directories
+set mark-modified-lines
+set mark-symlinked-directories
+set match-hidden-files
+set menu-complete-display-prefix
+set show-all-if-ambiguous
+set show-all-if-unmodified
+set skip-completed-text
+set visible-stats

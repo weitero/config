@@ -1,0 +1,10 @@
+require('nvim_comment').setup{
+  comment_chunk_text_object='ic',
+  comment_empty=true,
+  comment_empty_trim_whitespace=true,
+  create_mappings=true,
+  hook=nil,
+  line_mapping='gcc',
+  marker_padding=true,
+  operator_mapping='gc',
+}
