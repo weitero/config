@@ -17,6 +17,8 @@ git lfs install
 
 #git pull --rebase --autostash
 #https://cscheng.info/2017/01/26/git-tip-autostash-with-git-pull-rebase.html
+
+#https://stackoverflow.com/questions/30208928/can-git-pull-automatically-stash-and-pop-pending-changes
 git config --global pull.rebase true
 git config --global rebase.autoStash true #the --autostash option only work with --rebase
 
