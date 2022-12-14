@@ -1,9 +1,11 @@
 "$schema"='https://starship.rs/config-schema.json'
 add_newline=false
 
-
 [aws]
 symbol=" "
+
+[azure]
+symbol=" "
 
 [battery]
 charging_symbol=" "
@@ -18,19 +20,34 @@ threshold=30
 symbol=" "
 
 [character]
-error_symbol="[](bold red)"
+# error_symbol="[](red)"
+# success_symbol="[](green)"
+error_symbol="[﬌](red)"
+success_symbol="[﬌](green)"
 
 [cmake]
 symbol=" "
 
+[cobol]
+symbol=""
+
+[conda]
+symbol="ﭰ"
+
+[container]
+symbol=" "
+
 [crystal]
 symbol=" "
+
+[daml]
+symbol=" "
 
 [dart]
 symbol=" "
 
 [directory]
-read_only=" "
+read_only=""
 
 [docker_context]
 symbol=" "
@@ -47,6 +64,9 @@ symbol=" "
 [erlang]
 symbol=" "
 
+[gcloud]
+symbol=" "
+
 [git_branch]
 symbol=" "
 
@@ -54,11 +74,33 @@ symbol=" "
 tag_disabled=false
 tag_symbol=" "
 
+[git_metrics]
+disabled=false
+
+[git_status]
+ahead="${count}"
+behind="${count}"
+conflicted=""
+deleted=""
+diverged=""
+modified=""
+renamed=""
+staged='[\($count\)](green)'
+stashed=""
+untracked=""
+up_to_date=""
+
 [golang]
 symbol="ﳑ "
 
 [haskell]
 symbol=" "
+
+[helm]
+symbol="ﴱ "
+
+[hg_branch]
+symbol=" "
 
 [java]
 symbol=" "
@@ -69,9 +111,18 @@ symbol=" "
 [kotlin]
 symbol=" "
 
+[kubernetes]
+symbol="ﴱ "
+
 [lua]
 lua_binary="luajit"
 symbol=" "
+
+[meson]
+symbol=" "
+
+[nim]
+symbol=" "
 
 [nix_shell]
 symbol=" "
@@ -88,6 +139,9 @@ symbol=" "
 [php]
 symbol=" "
 
+[pulumi]
+symbol=" "
+
 [purescript]
 symbol=" "
 
@@ -96,6 +150,9 @@ symbol=" "
 
 [raku]
 symbol=" "
+
+[red]
+symbol="卑"
 
 [rlang]
 symbol="ﳒ "
@@ -109,6 +166,21 @@ symbol=" "
 [scala]
 symbol=" "
 
+[spack]
+symbol=" "
+
 [swift]
 symbol="ﯣ "
+
+[terraform]
+symbol=" "
+
+[vagrant]
+symbol=" "
+
+[vlang]
+symbol=" "
+
+[zig]
+symbol="⚡"
 
