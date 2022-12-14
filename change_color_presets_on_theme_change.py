@@ -7,16 +7,16 @@ import iterm2
 async def update(connection,theme):
     parts=theme.split(' ')
     if 'dark' in parts:
-        brighten_bold=True
+        # brighten_bold=True
         preset=await iterm2.ColorPreset.async_get(connection,'vscode')
     else:
-        brighten_bold=False
+        # brighten_bold=False
         preset=await iterm2.ColorPreset.async_get(connection,'vscode-light')
 
     profiles=await iterm2.PartialProfile.async_query(connection)
     for partial in profiles:
         profile=await partial.async_get_full_profile()
-        await profile.async_set_brighten_bold_text(brighten_bold)
+        # await profile.async_set_brighten_bold_text(brighten_bold) #requires iterm2==1.20
         await profile.async_set_color_preset(preset)
 
 
