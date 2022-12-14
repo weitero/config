@@ -1,5 +1,4 @@
-#########
-#aliases
+#Aliases
 alias ....='cd ../../..'
 alias ...='cd ../..'
 alias ..='cd ..'
@@ -24,7 +23,8 @@ alias rm='rm -iv'
 alias top='htop'
 alias vi='nvim -n'
 alias vim='nvim -n'
-#git
+
+#Aliases for Git
 alias ga='git add' #[file]
 alias gb='git branch' #[branch-name]
 alias gba='git branch -a'
@@ -62,62 +62,43 @@ alias gt='git tag'
 alias gta='git tag -a' #[name] [commit sha]
 alias gtd='git tag -d' #[name]
 
-############
-#bat themes
-[[ "$theme" == 'Dark\n' ]] && export BAT_THEME=OneHalfDark || export BAT_THEME=ansi
+#Bat Themes
 theme=$(defaults read -g AppleInterfaceStyle 2>/dev/null)
+[[ "$theme" == 'Dark\n' ]] && export BAT_THEME=OneHalfDark || export BAT_THEME=ansi
 
-#####
-#fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-######################
-#git branch in prompt
-#https://www.themoderncoder.com/add-git-branch-information-to-your-zsh-prompt/
-# RPROMPT=\$vsc_info_msg_0_
-# autoload -Uz vcs_info
-# precmd(){vsc_info}
-# setopt PROMPT_SUBST
-# zstyle ':vcs_info:git:*' formats '(%b)%r'
-
-###################
-#history searching
-bindkey "^[[A" history-search-backward
-bindkey "^[[B" history-search-forward
-
-##########
-#homebrew
+#Environment Variables
 export EDITOR=nvim
 export HOMEBREW_EDITOR=nvim
 export HOMEBREW_NO_ANALYTICS=1
-#shell completion
+
+#Homebrew Shell Completion
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 autoload -Uz compinit && compinit
 
-######
-#misc
-# export PKG_CONFIG_PATH="/usr/local/opt/icu4c/lib/pkgconfig"
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=cyan,bold'
+#Key Bindings
+bindkey "^[[A" history-search-backward
+bindkey "^[[B" history-search-forward
+
+#Misc
 eval "$(perl -I$HOME/software/usr/lib/perl5 -Mlocal::lib=$HOME/software/usr)"
-export GPG_TTY=$(tty)
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-##########
-#starship
+#Starship
 eval "$(starship init zsh)"
 
-########
-#zoxide
-eval "$(zoxide init zsh)"
+#Zsh Autosuggestions
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=cyan,underline'
 
-################
-#zsh completion
-#https://thevaluable.dev/zsh-completion-guide-examples/
+#Zsh Completion
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' menu select
 zstyle ':completion:*:*:*:*:descriptions' format '%F{green}-- %d --%f'
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
+#Zsh Highlight
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+ZSH_HIGHLIGHT_STYLES[path]='fg=cyan'
 
