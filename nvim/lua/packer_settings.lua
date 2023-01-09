@@ -41,11 +41,11 @@ require('packer').startup({
     }
     use {
       'feline-nvim/feline.nvim',
-      requires='kyazdani42/nvim-web-devicons',
+      requires='nvim-tree/nvim-web-devicons',
     }
     use {
       'goolord/alpha-nvim',
-      requires='kyazdani42/nvim-web-devicons',
+      requires='nvim-tree/nvim-web-devicons',
     }
     use {
       'hrsh7th/nvim-cmp',
@@ -59,8 +59,8 @@ require('packer').startup({
       },
     }
     use {
-      'kyazdani42/nvim-tree.lua',
-      requires='kyazdani42/nvim-web-devicons',
+      'nvim-tree/nvim-tree.lua',
+      requires='nvim-tree/nvim-web-devicons',
     }
     use {
       'lewis6991/gitsigns.nvim',
